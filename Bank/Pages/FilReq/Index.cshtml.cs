@@ -46,19 +46,13 @@ namespace Bank.Pages.FilReq.Request
                    Text = p.FullName
                }).ToList();
 
-            Deposit = _context.Deposit.Select(p =>
+            Deposit = _context.Deposits.Select(p =>
                new SelectListItem
                {
                    Value = p.DepId.ToString(),
                    Text = p.DepName
                }).ToList();
 
-            Currency = _context.Currency.Select(p =>
-               new SelectListItem
-               {
-                   Value = p.CurId.ToString(),
-                   Text = p.Name
-               }).ToList();
 
             return Page();
         }
