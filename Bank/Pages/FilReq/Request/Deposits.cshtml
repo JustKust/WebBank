@@ -1,32 +1,32 @@
 ﻿@page
-@model Bank.Pages.FilReq.Request.PersonnelDepartmentModel
+@model Bank.Pages.FilReq.Request.DepositsModel
 @{
-    <h1>Отдел кадров</h1>
+    <h1>Вклады</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Employee[0].FullName)
+                    @Html.DisplayNameFor(model => model.Deposit[0].DepName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Employee[0].Pos)
+                    @Html.DisplayNameFor(model => model.Deposit[0].Cur)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Employee)
+            @foreach (var item in Model.Deposit)
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
+                    @Html.DisplayFor(modelItem => item.DepName)
                 </td>
                 <td>
                     @{
                         try
                         {
-                            @Model.Position.First(r => r.PosId == item.PosId).PosName
+                            @Model.Currency.First(r => r.CurId == item.CurId).Name
                         }
                         catch
                         {

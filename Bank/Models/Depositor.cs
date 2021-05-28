@@ -33,7 +33,9 @@ namespace Bank.Models
         [Display(Name = "Код вклада")]
         public long DepId { get; set; }
 
+        [Display(Name = "Код вклада")]
         public virtual Deposit Dep { get; set; }
+        [Display(Name = "Код сотрудника")]
         public virtual Employee Em { get; set; }
     }
 }

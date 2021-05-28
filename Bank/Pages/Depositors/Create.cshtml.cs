@@ -21,8 +21,8 @@ namespace Bank.Pages.Depositors
 
         public IActionResult OnGet()
         {
-        ViewData["DepId"] = new SelectList(_context.Deposits, "DepId", "AddCond");
-        ViewData["EmId"] = new SelectList(_context.Employee, "EmId", "Adress");
+        ViewData["DepId"] = new SelectList(_context.Deposits, "DepId", "");
+        ViewData["EmId"] = new SelectList(_context.Employee, "EmId", "");
             return Page();
         }
 

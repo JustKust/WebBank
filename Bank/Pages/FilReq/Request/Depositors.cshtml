@@ -1,0 +1,56 @@
+﻿@page
+@model Bank.Pages.FilReq.Request.DepositorsModel
+@{
+    <h1>Вкладчики</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].Dep)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depositor[0].Em)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Depositor)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Deposit.First(r => r.DepId == item.DepId).DepId
+                        }
+                        catch
+                        {
+                            <p> Данных нет </p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employees.First(r => r.EmId == item.EmId).EmId
+                        }
+                        catch
+                        {
+                            <p> Данных нет </p>
+                        }
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

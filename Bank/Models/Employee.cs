@@ -29,6 +29,7 @@ namespace Bank.Models
         [Display(Name = "Код должности")]
         public long PosId { get; set; }
 
+        [Display(Name = "Должность")]
         public virtual Position Pos { get; set; }
         public virtual ICollection<Depositor> Depositors { get; set; }
     }

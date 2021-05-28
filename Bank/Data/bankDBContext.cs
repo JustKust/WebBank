@@ -25,6 +25,10 @@ namespace Bank.Data
         public virtual DbSet<Deposit> Deposits { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
+        public object Currencies { get; internal set; }
+        public object Deposit { get; internal set; }
+        public object PersonnelDepartamet { get; internal set; }
+        public object Position { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

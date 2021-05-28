@@ -9,22 +9,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Pages.FilReq.Request
 {
-    public class PersonnelDepartmentModel : PageModel
+    public class DepositsModel : PageModel
     {
         private readonly Bank.Data.bankDBContext _context;
 
-        public PersonnelDepartmentModel(Bank.Data.bankDBContext context)
+        public DepositsModel(Data.bankDBContext context)
         {
             _context = context;
         }
 
-        public IList<Employee> Employee { get; set; }
-        public IList<Position> Position { get; set; }
+        public IList<Deposit> Deposit { get; set; }
+        public IList<Currency> Currency { get; set; }
 
         public async Task OnGetAsync()
         {
-            Employee = await _context.Employee.ToListAsync();
-            Position = await _context.Positions.ToListAsync();
+            Deposit = await _context.Deposits.ToListAsync();
+            Currency = await _context.Currency.ToListAsync();
         }
     }
 }

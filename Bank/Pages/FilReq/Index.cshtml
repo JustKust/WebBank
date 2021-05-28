@@ -1,4 +1,68 @@
 ﻿@page
 @model Bank.Pages.FilReq.Request.IndexModel
 @{
+    <script>
+    function BtnFun(Classname, obj) {
+        var value = obj.value;
+        var name = "." + Classname;
+        if (value[0] != "-") {
+            $(name).prop('disabled', false);
+        }
+        else {
+            $(name).prop('disabled', true);
+        }
+    }
+    </script>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" style="color: saddlebrown" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Запросы
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul>
+                        <li><a class="nav-link text-dark" asp-area="" asp-page="Request/PersonnelDepartment">Отдел кадров</a></li>
+                        <li><a class="nav-link text-dark" asp-area="" asp-page="Request/Depositors">Вкладчики</a></li>
+                        <li><a class="nav-link text-dark" asp-area="" asp-page="Request/Deposits">Вклады</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" style="color: saddlebrown" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Фильтры
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <form>
+                        Отобразить сотрудников с должностью:
+                        <select asp-items="Model.Position" name="id" class="form-control-sm">
+                            <option value="-1">Должность не выбрана</option>
+                        </select>
+                        <button asp-page="Filter\EmployeeFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить вклады с валютой:
+                        <select asp-items="Model.Position" name="id" class="form-control-sm">
+                            <option value="-1">Валюта не выбрана</option>
+                        </select>
+                        <button asp-page="Filter\DepositFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
 }

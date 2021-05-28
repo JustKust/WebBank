@@ -38,8 +38,8 @@ namespace Bank.Pages.Depositors
             {
                 return NotFound();
             }
-           ViewData["DepId"] = new SelectList(_context.Deposits, "DepId", "AddCond");
-           ViewData["EmId"] = new SelectList(_context.Employee, "EmId", "Adress");
+           ViewData["DepId"] = new SelectList(_context.Deposits, "DepId", "DepId");
+           ViewData["EmId"] = new SelectList(_context.Employee, "EmId", "EmId");
             return Page();
         }
 

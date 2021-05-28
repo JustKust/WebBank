@@ -29,6 +29,7 @@ namespace Bank.Models
         [Display(Name = "Код валюты")]
         public long CurId { get; set; }
 
+        [Display(Name = "Валюта")]
         public virtual Currency Cur { get; set; }
         public virtual ICollection<Depositor> Depositors { get; set; }
     }
